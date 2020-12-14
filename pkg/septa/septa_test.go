@@ -15,7 +15,7 @@ func TestGetData(t *testing.T) {
 func TestGetT(t *testing.T) {
 	r, e := GetTrainView()
 	if e != nil {
-		t.Fatalf("Error: %v\n",e)
+		t.Fatalf("Error: %v\n", e)
 	}
 	_ = r
 }
