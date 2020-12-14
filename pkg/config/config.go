@@ -14,14 +14,12 @@ func SetEnv() {
 	}
 }
 
-func IfEnvNot(j string)  {
+func IfEnvNot(j string) {
 	r := os.Getenv(j)
 	if r == "" {
 		os.Setenv(j, viperEnvVariable(j))
 	}
 }
-
-
 
 func viperEnvVariable(key string) string {
 

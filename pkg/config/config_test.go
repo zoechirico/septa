@@ -18,36 +18,33 @@ func TestSetEnv(t *testing.T) {
 }
 
 func TestIfEnvNot(t *testing.T) {
-	os.Setenv("k","stuff")
+	os.Setenv("k", "stuff")
 	IfEnvNot("k")
 }
 
 func TestCheckENV(t *testing.T) {
 	SetEnv()
 
-	for _,j := range tokens {
+	for _, j := range tokens {
 		r := os.Getenv(j)
 		if r == "" {
-			t.Fatalf("Env: %v not set\n",j)
+			t.Fatalf("Env: %v not set\n", j)
 		}
 	}
-	if !strings.Contains(os.Getenv("SEPTA_URL"),"cwxstat") {
+	if !strings.Contains(os.Getenv("SEPTA_URL"), "cwxstat") {
 		t.Fatalf("\n\nWe're not getting values\n\n")
 	}
 
-
-	if !strings.Contains(os.Getenv("SEPTA_TOKEN"),"TzlRuS4yeN") {
+	if !strings.Contains(os.Getenv("SEPTA_TOKEN"), "TzlRuS4yeN") {
 		t.Fatalf("\n\nWe're token Contains\n\n")
 	}
 
-
-	if !strings.HasPrefix(os.Getenv("SEPTA_TOKEN"),"TzlRuS4yeN") {
+	if !strings.HasPrefix(os.Getenv("SEPTA_TOKEN"), "TzlRuS4yeN") {
 		t.Fatalf("\n\nWe're token Prefix\n\n")
 	}
 
-	if !strings.HasSuffix(os.Getenv("SEPTA_TOKEN"),"ewEuddmQ==") {
+	if !strings.HasSuffix(os.Getenv("SEPTA_TOKEN"), "ewEuddmQ==") {
 		t.Fatalf("\n\nWe're not getting token Suffix\n\n")
 	}
-
 
 }
