@@ -17,11 +17,7 @@ jobs:
       uses: actions/setup-go@v2
       with:
         go-version: ^1.15
-      env: 
-        SEPTA_URL: ${{ secrets.SEPTA_URL }}
-        SEPTA_TOKEN: ${{ secrets.SEPTA_TOKEN }}
-        SEPTA_BUCKET: ${{ secrets.SEPTA_BUCKET }}
-        SEPTA_ORG: ${{ secrets.SEPTA_ORG }}
+      
 
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
@@ -35,8 +31,18 @@ jobs:
         fi
 
     - name: Build
+      env: 
+        SEPTA_URL: ${{ secrets.SEPTA_URL }}
+        SEPTA_TOKEN: ${{ secrets.SEPTA_TOKEN }}
+        SEPTA_BUCKET: ${{ secrets.SEPTA_BUCKET }}
+        SEPTA_ORG: ${{ secrets.SEPTA_ORG }}
       run: go build -v ./...
       
 
     - name: Test
+      env: 
+        SEPTA_URL: ${{ secrets.SEPTA_URL }}
+        SEPTA_TOKEN: ${{ secrets.SEPTA_TOKEN }}
+        SEPTA_BUCKET: ${{ secrets.SEPTA_BUCKET }}
+        SEPTA_ORG: ${{ secrets.SEPTA_ORG }}
       run: go test -v ./...
